@@ -1,10 +1,16 @@
-const API = {
-  BASE_URL: "https://word-api-hmlg.vercel.app",
+export const API = {
+  BASE_URL: "https://word-api-hmlg.vercel.app/api",
 };
 
-const API_ROUTES = {
-  DIFFICULTIES: "/api/difficulties",
-  CHECKWORD: "/api/checkWord",
+export const API_ROUTES = {
+  DIFFICULTIES: "/difficulties",
+  CHECKWORD: "/checkWord",
 };
 
-export default { API, API_ROUTES };
+export const regla = {
+  intentos: 6,
+};
+
+export const localStorageName = {
+  currentGame: "currentGame",
+};

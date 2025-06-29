@@ -3,7 +3,7 @@ import { getDifficulties } from "../../services/wordleServices";
 import { useWordleContext } from "../../context/wordleContext";
 
 const NavBar = () => {
-  const { setCurrentDifficult } = useWordleContext();
+  const { setCurrentDifficult, currentDifficult, reset } = useWordleContext();
   const [difficulties, setDifficulties] = useState([]);
   useEffect(() => {
     getDifficulties().then((difficulties) => setDifficulties(difficulties));
@@ -21,16 +21,15 @@ const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item dropdown">
-              <a
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+            <li className="dropdown ">
+              <button
                 className="nav-link dropdown-toggle"
-                href="#"
                 role="button"
                 data-bs-toggle="dropdown"
               >
                 Level
-              </a>
+              </button>
               <ul className="dropdown-menu">
                 {difficulties.map((d) => (
                   <li key={d.id}>
@@ -45,7 +44,18 @@ const NavBar = () => {
                 ))}
               </ul>
             </li>
+            <li>
+              <button
+                className="btn border-0 text-danger "
+                onClick={() => reset()}
+              >
+                Reset
+              </button>
+            </li>
           </ul>
+          <span className="text-white fw-medium">
+            Level: {currentDifficult?.name}
+          </span>
         </div>
       </div>
     </nav>

@@ -7,9 +7,14 @@ export const WordleProvider = ({ children }) => {
     id: 1,
     name: "Easy",
   });
+  const [countReset, setReset] = useState(0);
+
+  const reset = () => setReset((prev) => prev + 1);
 
   return (
-    <WordleContext.Provider value={{ currentDifficult, setCurrentDifficult }}>
+    <WordleContext.Provider
+      value={{ currentDifficult, setCurrentDifficult, countReset, reset }}
+    >
       {children}
     </WordleContext.Provider>
   );
