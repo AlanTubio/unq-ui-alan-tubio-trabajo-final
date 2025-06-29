@@ -9,11 +9,11 @@ const KeyBoard = ({ keyPress }) => {
   return (
     <div className="d-flex flex-column align-items-center my-3">
       {KEYS.map((rowKeys, i) => (
-        <div key={i} className="mb-2">
+        <div key={i} className="mb-2 d-flex justify-content-center">
           {rowKeys.map((key) => (
             <button
               key={key}
-              className="btn btn-outline-light mx-1 fw-bold sizeKey fs-5"
+              className="btn btn-outline-light mx-1 fw-bold key d-flex align-items-center justify-content-center"
               onClick={() => keyPress(key)}
             >
               {key}
@@ -22,13 +22,13 @@ const KeyBoard = ({ keyPress }) => {
           {i === 2 && (
             <>
               <button
-                className="btn btn-outline-warning mx-1 sizeKey"
+                className="btn btn-outline-warning mx-1 key key-special d-flex align-items-center justify-content-center"
                 onClick={() => keyPress("ENTER")}
               >
                 ENTER
               </button>
               <button
-                className="btn btn-outline-danger mx-1 sizeKey"
+                className="btn btn-outline-danger mx-1 key key-special d-flex align-items-center justify-content-center"
                 onClick={() => keyPress("BACKSPACE")}
               >
                 ⌫
