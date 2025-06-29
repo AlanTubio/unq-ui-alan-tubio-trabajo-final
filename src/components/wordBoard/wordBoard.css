@@ -1,0 +1,20 @@
+.sizeBox {
+  width: 10vw;
+  height: 10vw;
+  min-width: 40px;
+  min-height: 40px;
+  max-width: 70px;
+  max-height: 70px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .sizeBox {
+    width: 14vw;
+    height: 14vw;
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 48px;
+    max-height: 48px;
+  }
+}
