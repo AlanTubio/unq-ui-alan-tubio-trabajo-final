@@ -7,20 +7,10 @@ const api = axios.create({
 });
 
 const getDifficulties = () =>
-  api
-    .get(API_ROUTES.DIFFICULTIES)
-    .then((res) => res.data)
-    .catch((error) => {
-      throw errorMessage(error);
-    });
+  api.get(API_ROUTES.DIFFICULTIES).then((res) => res.data);
 
 const getWord = (id) =>
-  api
-    .get(`${API_ROUTES.DIFFICULTIES}/${id}`)
-    .then((res) => res.data)
-    .catch((error) => {
-      throw errorMessage(error);
-    });
+  api.get(`${API_ROUTES.DIFFICULTIES}/${id}`).then((res) => res.data);
 
 const checkWord = (sessionId, word) =>
   api

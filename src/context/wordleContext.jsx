@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import { getWord } from "../services/wordleServices";
 
 const WordleContext = createContext();
 
@@ -7,13 +8,34 @@ export const WordleProvider = ({ children }) => {
     id: 1,
     name: "Easy",
   });
-  const [countReset, setReset] = useState(0);
+  const [currentWord, setCurrentWord] = useState("");
+  const [attempts, setAttempts] = useState([]);
+  const [playInfo, setPlayInfo] = useState();
 
-  const reset = () => setReset((prev) => prev + 1);
+  const playNewGame = () => {
+    getWord(currentDifficult.id).then((playInfo) => {
+      setCurrentWord("");
+      setAttempts([]);
+      setPlayInfo(playInfo);
+    });
+  };
+
+  useEffect(() => {
+    playNewGame();
+  }, [currentDifficult]);
 
   return (
     <WordleContext.Provider
-      value={{ currentDifficult, setCurrentDifficult, countReset, reset }}
+      value={{
+        currentDifficult,
+        setCurrentDifficult,
+        currentWord,
+        setCurrentWord,
+        attempts,
+        setAttempts,
+        playInfo,
+        playNewGame,
+      }}
     >
       {children}
     </WordleContext.Provider>

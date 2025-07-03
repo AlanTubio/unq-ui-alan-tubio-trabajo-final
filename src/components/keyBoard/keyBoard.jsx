@@ -51,13 +51,13 @@ const KeyBoard = ({ keyPress, attempts }) => {
           {i === 2 && (
             <>
               <button
-                className="btn btn-outline-info mx-1 key key-special d-flex align-items-center justify-content-center"
+                className="btn btn-outline-info mx-1 key-special d-flex align-items-center justify-content-center"
                 onClick={() => keyPress("ENTER")}
               >
                 ENTER
               </button>
               <button
-                className="btn btn-outline-danger mx-1 key key-special d-flex align-items-center justify-content-center"
+                className="btn btn-outline-danger mx-1 key-special d-flex align-items-center justify-content-center"
                 onClick={() => keyPress("BACKSPACE")}
               >
                 ⌫

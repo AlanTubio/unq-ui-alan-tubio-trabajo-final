@@ -3,7 +3,8 @@ import { getDifficulties } from "../../services/wordleServices";
 import { useWordleContext } from "../../context/wordleContext";
 
 const NavBar = () => {
-  const { setCurrentDifficult, currentDifficult, reset } = useWordleContext();
+  const { setCurrentDifficult, currentDifficult, playNewGame } =
+    useWordleContext();
   const [difficulties, setDifficulties] = useState([]);
   useEffect(() => {
     getDifficulties().then((difficulties) => setDifficulties(difficulties));
@@ -13,7 +14,7 @@ const NavBar = () => {
       <div className="container">
         <span className="navbar-brand">Wordle</span>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler "
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarContent"
@@ -21,8 +22,8 @@ const NavBar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-            <li className="dropdown ">
+          <div className="navbar-nav gap-3 align-items-lg-center">
+            <div className="dropdown ">
               <button
                 className="nav-link dropdown-toggle"
                 role="button"
@@ -30,7 +31,7 @@ const NavBar = () => {
               >
                 Level
               </button>
-              <ul className="dropdown-menu">
+              <ul className="dropdown-menu dropdown-menu-dark">
                 {difficulties.map((d) => (
                   <li key={d.id}>
                     <button
@@ -43,17 +44,15 @@ const NavBar = () => {
                   </li>
                 ))}
               </ul>
-            </li>
-            <li>
-              <button
-                className="btn border-0 text-danger "
-                onClick={() => reset()}
-              >
-                Reset
-              </button>
-            </li>
-          </ul>
-          <span className="text-white fw-medium">
+            </div>
+            <button
+              className="btn border-0 text-danger me-auto p-0"
+              onClick={() => playNewGame()}
+            >
+              Play again
+            </button>
+          </div>
+          <span className="text-white fw-medium d-flex ms-auto align-items-lg-center my-lg-0 my-4">
             Level: {currentDifficult?.name}
           </span>
         </div>
