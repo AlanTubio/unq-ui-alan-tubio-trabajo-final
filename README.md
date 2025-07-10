@@ -1,12 +1,35 @@
-# React + Vite
+# Wordle React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requisitos previos
 
-Currently, two official plugins are available:
+- Debés tener [Node.js](https://nodejs.org/) instalado en tu computadora.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
 
-## Expanding the ESLint configuration
+1. **Descargá el proyecto:**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+   - Hacé clic en el botón `Code` (o `<> Code`) en la página del repositorio de GitHub.
+   - Seleccioná `Download ZIP`.
+   - Extraé el archivo ZIP en la carpeta que prefieras.
+
+2. **Abrí una terminal en la carpeta del proyecto y ejecutá:**
+
+   ```CMD
+   npm install
+   ```
+
+## Ejecución local
+
+1. **Iniciá el servidor de desarrollo:**
+
+   ```CMD
+   npm run dev
+   ```
+
+2. **Abrí tu navegador y accedé a:**
+
+   ```
+   http://localhost:5173
+   ```
+
+¡Listo! Ahora podés jugar Wordle
