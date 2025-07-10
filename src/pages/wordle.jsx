@@ -1,7 +1,6 @@
 import KeyBoard from "../components/keyBoard/keyBoard";
 import WordBoard from "../components/wordBoard/wordBoard";
 import { useWordleContext } from "../context/wordleContext";
-import { useState } from "react";
 import { checkWord } from "../services/wordleServices";
 import { regla } from "../constants";
 import {
@@ -12,9 +11,15 @@ import {
 } from "../utilities/validateWord";
 
 const Wordle = () => {
-  const { setCurrentWord, currentWord, attempts, setAttempts, playInfo } =
-    useWordleContext();
-  const [errorMsg, setErrorMsg] = useState("");
+  const {
+    setCurrentWord,
+    currentWord,
+    attempts,
+    setAttempts,
+    playInfo,
+    errorMsg,
+    setErrorMsg,
+  } = useWordleContext();
 
   const keyPress = (key) => {
     setErrorMsg("");
@@ -41,20 +46,21 @@ const Wordle = () => {
     <>
       <div className="container-fluid">
         {errorMsg && (
-          <p className="text-white text-center fw-bold">{errorMsg}</p>
+          <h5 className="text-white text-center fw-bold">{errorMsg}</h5>
         )}
         {playInfo && (
           <>
             {isLastAttemptCorrect(attempts) && (
-              <p className="text-white text-center fw-bold">
+              <h5 className="text-white text-center fw-bold">
                 You guessed the word, congratulations! 🎉
-              </p>
+              </h5>
             )}
-            {isMaxAttemptsReached(attempts) && (
-              <p className=" text-white text-center fw-bold">
-                You have no more attempts! 😢
-              </p>
-            )}
+            {!isLastAttemptCorrect(attempts) &&
+              isMaxAttemptsReached(attempts) && (
+                <h5 className=" text-white text-center fw-bold">
+                  You have no more attempts! 😢
+                </h5>
+              )}
             <WordBoard
               attempts={attempts}
               currentWord={currentWord}

@@ -11,9 +11,11 @@ export const WordleProvider = ({ children }) => {
   const [currentWord, setCurrentWord] = useState("");
   const [attempts, setAttempts] = useState([]);
   const [playInfo, setPlayInfo] = useState();
+  const [errorMsg, setErrorMsg] = useState("");
 
   const playNewGame = () => {
     getWord(currentDifficult.id).then((playInfo) => {
+      setErrorMsg("");
       setCurrentWord("");
       setAttempts([]);
       setPlayInfo(playInfo);
@@ -35,6 +37,8 @@ export const WordleProvider = ({ children }) => {
         setAttempts,
         playInfo,
         playNewGame,
+        errorMsg,
+        setErrorMsg,
       }}
     >
       {children}
